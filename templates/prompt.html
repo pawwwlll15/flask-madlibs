@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% block title%}Home Page{% endblock %}
+
+
+{% block content %}
+<h2>HOME PAGE</h2>
+
+<form action="/story">
+    <select name="story_choices">
+        <option name="story1">Story 1</option>
+        <option name="story2">Story 2</option>
+        <option name="story3">Story 3</option>
+    </select>
+    {% for word in words%}
+    <!-- create a div for each input in order to give them space and allow the label to be on the same line as the input -->
+        <div id="form-inputs">
+            <label><h3>{{word}}:</h3></label><input type="text" placeholder="{{word}}" name="{{word}}">
+        </div>
+    {% endfor %}
+    
+    <button id="submitLibs">Submit</button>
+</form>
+
+<h3>{{story_choice}}</h3>
+{% endblock %}
